@@ -27,7 +27,7 @@ let save = (respository) => {
     githubObj.owner = respository[i].owner.id;
     githubObj.description = respository[i].description;
     githubObj.html_url = respository[i].html_url;
-    githubObj.createdAt = respository[i].createdAt;
+    githubObj.createdAt = newrespository[i].createdAt;
     githubObj.updatedAt = respository[i].updatedAt;
     
     var repo = new Repo(githubObj);
