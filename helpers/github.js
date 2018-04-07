@@ -1,7 +1,8 @@
 const request = require('request');
 const config = require('../config.js');
+const db = require('../database/index.js');
 
-let getReposByUsername = (username) => {
+let getReposByUsername = (username, callback) => {
   // TODO - Use the request module to request repos for a specific
   // user from the github API
   
@@ -12,20 +13,17 @@ let getReposByUsername = (username) => {
     headers: {
       'User-Agent': 'request',
       'Authorization': `token ${config.TOKEN}`,
-      'Accept': 'application/vnd.github.v3+json'
+      'Accept': 'application/vnd.github.v3+json',
     }
   };
-  
-  request.get(options, function(error, results, body){
+  request.get(options, function(err, results, body){
     var info = JSON.parse(body);
     if(err){
-      console.log(err)
+      callback(err, null);
     } else {
-      console.log(body);
-      console.log(results);
+      callback(null, info);
     }
-  })
-
+  });
 }
 
 module.exports.getReposByUsername = getReposByUsername;
