@@ -10,7 +10,23 @@ class App extends React.Component {
     this.state = { 
       repos: []
     }
+    this.getRepos = this.getRepos.bind(this);
+    this.search = this.search.bind(this);
+  }
 
+  getRepos() {
+      $.ajax({
+      url: "/repos",
+      type: "GET",
+      success: (results) => {
+        this.setState({
+          repos: results
+        })
+      },
+      error: (err) => {
+        console.log(err);    
+      }
+    });
   }
 
   search (term) {
@@ -21,10 +37,10 @@ class App extends React.Component {
       type: "POST",
       contentType: "text/plain",
       data: term,
-      success: function(results){
-        console.log(results);
+      success: (results) => {
+        this.getRepos();
       },
-      error: function(err){
+      error: (err) => {
         console.log(err);    
       }
     });
