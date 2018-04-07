@@ -9,8 +9,8 @@ let repoSchema = mongoose.Schema({
   owner: String,
   description: String,
   html_url: String,
-  createdAt: Date,
-  updatedAt: Date,
+  created_at: Date,
+  updated_at: Date,
 });
 
 let Repo = mongoose.model('Repo', repoSchema);
@@ -27,13 +27,12 @@ let save = (respository) => {
     githubObj.owner = respository[i].owner.id;
     githubObj.description = respository[i].description;
     githubObj.html_url = respository[i].html_url;
-    githubObj.createdAt = newrespository[i].createdAt;
-    githubObj.updatedAt = respository[i].updatedAt;
+    githubObj.created_at = respository[i].created_at;
+    githubObj.updated_at = respository[i].updated_at;
     
     var repo = new Repo(githubObj);
-    
-    repo.save(function(err, product){
-      console.log(product)});
+    console.log(githubObj);
+    repo.save();
   };
 }
 

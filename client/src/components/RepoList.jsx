@@ -10,8 +10,9 @@ const RepoList = (props) => (
           <th>ID</th>
           <th>Name</th>
           <th>Description</th>
-          <th>Owner</th>
+          <th>Stargazers_count</th>
           <th>CreatedAt</th>
+          <th>HTML Url</th>
         </tr>
       </thead>
       <tbody>
@@ -21,8 +22,9 @@ const RepoList = (props) => (
           <td>{repo.id}</td>
           <td>{repo.name}</td>
           <td>{repo.description}</td>
-          <td>{repo.owner}</td>
-          <td>{repo.createdAt}</td>
+          <td>{repo.stargazers_count}</td>
+          <td>{repo.created_at}</td>
+          <td>{repo.html_url}</td>
           </tr>
           )
         })}

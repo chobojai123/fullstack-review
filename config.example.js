@@ -1,3 +1,3 @@
 module.exports = {
-  TOKEN: 'YOUR TOKEN HERE'
+  TOKEN: 'cefc8e89cd391faffc233ca1aeaeb11d90f5fcba'
 };

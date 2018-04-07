@@ -1,3 +1,4 @@
+const cool = require('cool-ascii-faces');
 const express = require('express');
 const bodyparser = require('body-parser');
 const github = require('../helpers/github.js');
@@ -34,6 +35,11 @@ app.get('/repos', function (req, res) {
     res.json(repos)
   })
 });
+
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
+
 
 let port = 1128;
 
